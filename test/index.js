@@ -3,7 +3,7 @@ var supertest = require('supertest')
 var WebSocketClient = require('websocket').client
 var pkg = require('../package.json')
 
-var request = supertest('http://127.0.0.1:2000')
+var request = supertest('http://127.0.0.1:2001')
 var webSocketClient = new WebSocketClient()
 
 var procs = []
@@ -167,8 +167,9 @@ describe('h', function () {
 
   describe('when all processes are killed', function () {
     before(function (done) {
-      procs[1].kill()
-      procs[2].kill()
+      procs.forEach(function (proc) {
+        proc.kill()
+      })
       setTimeout(done, timeout)
     })
 
