@@ -3,7 +3,7 @@ var supertest = require('supertest')
 var WebSocketClient = require('websocket').client
 var pkg = require('../package.json')
 
-var request = supertest('http://127.0.0.1:2001')
+var request = supertest('http://127.0.0.1:2000')
 var webSocketClient = new WebSocketClient()
 
 var procs = []
